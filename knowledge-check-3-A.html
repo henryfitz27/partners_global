@@ -4,36 +4,46 @@
 <meta charset="UTF-8">
 <title>Self Assessment</title>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial;
   margin: 0;
-  padding: 10px;
+  padding: 15px;
   background: transparent;
-  color: #333;
 }
 
 h3 {
-  margin-top: 20px;
-  color: #2c3e50;
+  margin-top: 25px;
+  color: #0f6cbf;
+}
+
+.card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
 }
 
 .question {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .scale label {
-  margin-right: 10px;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 12px 20px;
   background: #0f6cbf;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -42,11 +52,14 @@ button:hover {
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 15px;
   background: #f5f7fa;
-  border-left: 4px solid #0f6cbf;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+canvas {
+  margin-top: 20px;
 }
 </style>
 
@@ -54,114 +67,106 @@ button:hover {
 
 <body>
 
-<p><b>How to Use:</b> For each statement, rate yourself on a 5-point scale:</p>
-<ul>
-  <li>1 = Strongly disagree</li>
-  <li>2 = Disagree</li>
-  <li>3 = Somewhat agree</li>
-  <li>4 = Agree</li>
-  <li>5 = Strongly agree</li>
-</ul>
+<div class="card">
+<p><b>How to Use:</b> Rate each statement from 1 (Strongly disagree) to 5 (Strongly agree)</p>
+</div>
 
-<h3>A. Programme Management Technical Skills</h3>
+<div class="card">
+<h3>A. Technical Skills</h3>
 
-<div class="question">
-Strategic and systems thinking
+<div class="question">Strategic thinking
 <div class="scale">
 <label><input type="radio" name="q1" value="1">1</label>
 <label><input type="radio" name="q1" value="2">2</label>
 <label><input type="radio" name="q1" value="3">3</label>
 <label><input type="radio" name="q1" value="4">4</label>
 <label><input type="radio" name="q1" value="5">5</label>
-</div>
-</div>
+</div></div>
 
-<div class="question">
-Benefits and outcomes management
+<div class="question">Benefits management
 <div class="scale">
 <label><input type="radio" name="q2" value="1">1</label>
 <label><input type="radio" name="q2" value="2">2</label>
 <label><input type="radio" name="q2" value="3">3</label>
 <label><input type="radio" name="q2" value="4">4</label>
 <label><input type="radio" name="q2" value="5">5</label>
-</div>
-</div>
+</div></div>
 
-<div class="question">
-Adaptive decision-making
+<div class="question">Adaptive decision-making
 <div class="scale">
 <label><input type="radio" name="q3" value="1">1</label>
 <label><input type="radio" name="q3" value="2">2</label>
 <label><input type="radio" name="q3" value="3">3</label>
 <label><input type="radio" name="q3" value="4">4</label>
 <label><input type="radio" name="q3" value="5">5</label>
-</div>
+</div></div>
+
 </div>
 
-<h3>B. Leadership and Interpersonal Skills</h3>
+<div class="card">
+<h3>B. Leadership</h3>
 
-<div class="question">
-Team leadership and collaboration
+<div class="question">Team leadership
 <div class="scale">
 <label><input type="radio" name="q4" value="1">1</label>
 <label><input type="radio" name="q4" value="2">2</label>
 <label><input type="radio" name="q4" value="3">3</label>
 <label><input type="radio" name="q4" value="4">4</label>
 <label><input type="radio" name="q4" value="5">5</label>
-</div>
-</div>
+</div></div>
 
-<div class="question">
-Communication and influence
+<div class="question">Communication
 <div class="scale">
 <label><input type="radio" name="q5" value="1">1</label>
 <label><input type="radio" name="q5" value="2">2</label>
 <label><input type="radio" name="q5" value="3">3</label>
 <label><input type="radio" name="q5" value="4">4</label>
 <label><input type="radio" name="q5" value="5">5</label>
-</div>
+</div></div>
+
 </div>
 
-<h3>C. Personal and Self-Management Skills</h3>
+<div class="card">
+<h3>C. Personal Skills</h3>
 
-<div class="question">
-Self-organisation and discipline
+<div class="question">Self-organisation
 <div class="scale">
 <label><input type="radio" name="q6" value="1">1</label>
 <label><input type="radio" name="q6" value="2">2</label>
 <label><input type="radio" name="q6" value="3">3</label>
 <label><input type="radio" name="q6" value="4">4</label>
 <label><input type="radio" name="q6" value="5">5</label>
-</div>
-</div>
+</div></div>
 
-<div class="question">
-Critical thinking and judgment
+<div class="question">Critical thinking
 <div class="scale">
 <label><input type="radio" name="q7" value="1">1</label>
 <label><input type="radio" name="q7" value="2">2</label>
 <label><input type="radio" name="q7" value="3">3</label>
 <label><input type="radio" name="q7" value="4">4</label>
 <label><input type="radio" name="q7" value="5">5</label>
-</div>
+</div></div>
+
 </div>
 
-<h3>D. Sector-Specific Practice</h3>
+<div class="card">
+<h3>D. Sector Practice</h3>
 
-<div class="question">
-Human rights and ethical judgment
+<div class="question">Human rights application
 <div class="scale">
 <label><input type="radio" name="q8" value="1">1</label>
 <label><input type="radio" name="q8" value="2">2</label>
 <label><input type="radio" name="q8" value="3">3</label>
 <label><input type="radio" name="q8" value="4">4</label>
 <label><input type="radio" name="q8" value="5">5</label>
-</div>
+</div></div>
+
 </div>
 
-<button onclick="calc()">Submit</button>
+<button onclick="calc()">See Results</button>
 
 <div id="result" class="result"></div>
+<canvas id="chart"></canvas>
 
 <script>
 function avg(list) {
@@ -170,7 +175,7 @@ function avg(list) {
     let val = document.querySelector(`input[name="${q}"]:checked`);
     if (val) { sum += parseInt(val.value); count++; }
   });
-  return count ? (sum / count).toFixed(2) : "0";
+  return count ? (sum / count).toFixed(2) : 0;
 }
 
 function calc() {
@@ -179,17 +184,36 @@ function calc() {
   let C = avg(["q6","q7"]);
   let D = avg(["q8"]);
 
-  let total = ((parseFloat(A)+parseFloat(B)+parseFloat(C)+parseFloat(D))/4).toFixed(2);
+  let total = ((+A + +B + +C + +D) / 4).toFixed(2);
 
   document.getElementById("result").innerHTML = `
     <h3>Your Results</h3>
-    <p><b>Technical Skills (A):</b> ${A}</p>
-    <p><b>Leadership Skills (B):</b> ${B}</p>
-    <p><b>Personal Skills (C):</b> ${C}</p>
-    <p><b>Sector Practice (D):</b> ${D}</p>
-    <hr>
-    <p><b>Overall Average:</b> ${total}</p>
+    <p>Technical: ${A}</p>
+    <p>Leadership: ${B}</p>
+    <p>Personal: ${C}</p>
+    <p>Sector: ${D}</p>
+    <p><b>Overall: ${total}</b></p>
   `;
+
+  new Chart(document.getElementById("chart"), {
+    type: 'radar',
+    data: {
+      labels: ["Technical", "Leadership", "Personal", "Sector"],
+      datasets: [{
+        label: "Competency Score",
+        data: [A, B, C, D],
+        fill: true
+      }]
+    },
+    options: {
+      scales: {
+        r: {
+          min: 0,
+          max: 5
+        }
+      }
+    }
+  });
 }
 </script>
 
